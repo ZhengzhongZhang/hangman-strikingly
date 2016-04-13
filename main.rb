@@ -24,7 +24,7 @@ while total <= game.number_of_words
     guess = policy.next
     word, total, wrong = game.guess guess
     p [word, total, wrong]
-    policy.push(word, word.include?(guess))
+    policy.feedback(word, word.include?(guess))
   else
     word, total, wrong = game.give_word
     policy = Policy.new(word.size)

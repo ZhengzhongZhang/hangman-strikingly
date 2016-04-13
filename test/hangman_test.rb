@@ -23,7 +23,7 @@ describe Policy do
         w = word.guess guess
         # puts "result: #{w}"
         break if word.is_right?
-        policy.push(w, w.include?(guess))
+        policy.feedback(w, w.include?(guess))
       end
       assert word.is_right?, "fail on #{to_guess}"
     end

@@ -16,7 +16,7 @@ class Policy
 
   def next
     c = most_possible
-    @tried << most_possible
+    @tried << c
     c
   end
 
@@ -31,7 +31,7 @@ class Policy
     h.max_by{|k,v| v}[0]
   end
 
-  def push(word, success)
+  def feedback(word, success)
     unless success
       @rejected << @tried.last
     end
