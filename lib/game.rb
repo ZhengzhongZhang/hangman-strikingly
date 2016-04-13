@@ -7,6 +7,8 @@ class Game
   def initialize
     if File.exist? 'status.json'
       @sessionId, @number_of_words, @allowed_fail_times = File.open("status.json") { |f| JSON.load(f) }
+    else
+      fail "use 'ruby main.rb start' to start game first"
     end
     @url = 'https://strikingly-hangman.herokuapp.com/game/on'
     @player_id = 'zzz95@outlook.com'
